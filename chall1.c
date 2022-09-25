@@ -15,9 +15,9 @@ char *__obfuscation (char *pwd, char *key);
 void __create_tag (char *id);
 
 int main (int argc, char *argv[]) {
-  if (argc != 2) {
+  if (argc != 2) { // 비번 입력해야 복호화 할거야!!!!
     __print_sw_title(argv[0]);
-    return ERRO;
+    return ERRO; // 없으면 종료입니다~
   }
 
   if ( __is_valid_pwd(argv[1]) ) {
@@ -41,7 +41,7 @@ int __is_valid_pwd (char *pwd) {
 char *__obfuscation (char *pwd, char *key) {
   int i;
   for (i = 0; i < strlen(pwd); i++) {
-    if(key[i] == '\0') break;
+    if(key[i] == '\0') break; // 키
     pwd[i] = pwd[i] ^ key[i];
   }
 
@@ -50,7 +50,7 @@ char *__obfuscation (char *pwd, char *key) {
 
 void __print_sw_title (char *sw_name) {
   printf(" ----------- [%s] ----------- \n", sw_name);
-  printf(" ::. 복호화 방법: %s <복호화키>\n\n", sw_name);
+  printf(" ::. 복호화 방법: %s <복호화키>\n\n", sw_name); // 실행방법
 }
 
 void __create_tag (char *id) {
